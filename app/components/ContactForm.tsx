@@ -28,116 +28,138 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contato" aria-labelledby="contact-title" className="bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <h2
-          id="contact-title"
-          className="font-serif text-3xl text-brand-navy md:text-4xl"
-        >
-          Contato
-        </h2>
+    <section
+      id="contato"
+      aria-labelledby="contact-title"
+      className="bg-brand-navy"
+    >
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+        <div>
+          <h2
+            id="contact-title"
+            className="font-serif text-4xl leading-tight text-white md:text-5xl"
+          >
+            Suas decisões merecem{" "}
+            <span className="italic text-brand-gold">uma base segura.</span>
+          </h2>
 
-        <p className="mt-4 text-brand-muted">
-          Use dados fictícios para testar o formulário de demonstração.
-        </p>
+          <p className="mt-5 max-w-md leading-relaxed text-slate-200">
+            Conte brevemente o que você precisa proteger ou resolver. Escolha a
+            área que mais se aproxima da sua situação.
+          </p>
+        </div>
 
-        <form action={formAction} className="mt-8 max-w-xl">
-          <fieldset disabled={isSubmitting} className="space-y-5">
-            <legend className="sr-only">Dados para contato</legend>
+        <div className="min-w-0 rounded-lg bg-white p-6 text-brand-ink shadow-sm sm:p-8">
+          <h3 className="font-serif text-3xl text-brand-navy">
+            Vamos conversar?
+          </h3>
 
-            <label className="block font-semibold">
-              Nome
-              <input
-                name="name"
-                autoComplete="name"
-                required
-                minLength={2}
-                maxLength={100}
-                className={fieldClass}
-                value={fields.name}
-                onChange={(event) => updateField("name", event.target.value)}
-              />
-            </label>
+          <p className="mt-3 text-sm leading-relaxed text-brand-muted">
+            Use dados fictícios para testar o formulário de demonstração.
+          </p>
 
-            <label className="block font-semibold">
-              E-mail ou WhatsApp
-              <input
-                name="contact"
-                required
-                maxLength={150}
-                className={fieldClass}
-                value={fields.contact}
-                onChange={(event) => updateField("contact", event.target.value)}
-              />
-            </label>
+          <form action={formAction} className="mt-6">
+            <fieldset disabled={isSubmitting} className="space-y-5">
+              <legend className="sr-only">Dados para contato</legend>
 
-            <label className="block font-semibold">
-              Área de atuação
-              <select
-                name="area"
-                required
-                className={fieldClass}
-                value={fields.area}
-                onChange={(event) => updateField("area", event.target.value)}
+              <label className="block font-semibold">
+                Nome
+                <input
+                  name="name"
+                  autoComplete="name"
+                  required
+                  minLength={2}
+                  maxLength={100}
+                  className={fieldClass}
+                  value={fields.name}
+                  onChange={(event) => updateField("name", event.target.value)}
+                />
+              </label>
+
+              <label className="block font-semibold">
+                E-mail ou WhatsApp
+                <input
+                  name="contact"
+                  required
+                  maxLength={150}
+                  className={fieldClass}
+                  value={fields.contact}
+                  onChange={(event) =>
+                    updateField("contact", event.target.value)
+                  }
+                />
+              </label>
+
+              <label className="block font-semibold">
+                Área de atuação
+                <select
+                  name="area"
+                  required
+                  className={fieldClass}
+                  value={fields.area}
+                  onChange={(event) => updateField("area", event.target.value)}
+                >
+                  <option value="">Selecione uma área</option>
+                  {practiceAreas.map((area) => (
+                    <option key={area.id} value={area.id}>
+                      {area.title}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="block font-semibold">
+                Mensagem
+                <textarea
+                  name="message"
+                  required
+                  minLength={10}
+                  maxLength={1000}
+                  rows={5}
+                  className={fieldClass}
+                  value={fields.message}
+                  onChange={(event) =>
+                    updateField("message", event.target.value)
+                  }
+                />
+              </label>
+
+              <button
+                type="submit"
+                className="w-full rounded-md bg-brand-gold px-5 py-3 font-semibold text-brand-dark hover:bg-brand-gold/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy disabled:opacity-60"
               >
-                <option value="">Selecione uma área</option>
-                {practiceAreas.map((area) => (
-                  <option key={area.id} value={area.id}>
-                    {area.title}
-                  </option>
-                ))}
-              </select>
-            </label>
+                {isSubmitting ? "Validando…" : "Simular envio"}
+              </button>
+            </fieldset>
 
-            <label className="block font-semibold">
-              Mensagem
-              <textarea
-                name="message"
-                required
-                minLength={10}
-                maxLength={1000}
-                rows={5}
-                className={fieldClass}
-                value={fields.message}
-                onChange={(event) => updateField("message", event.target.value)}
-              />
-            </label>
-
-            <button
-              type="submit"
-              className="rounded-md bg-brand-navy px-5 py-3 font-semibold text-white disabled:opacity-60"
+            <p
+              role="status"
+              className={`mt-4 text-sm ${state.status === "error" ? "text-red-700" : "text-brand-navy"}`}
             >
-              {isSubmitting ? "Validando…" : "Simular envio"}
-            </button>
-          </fieldset>
+              {state.message}
+            </p>
+          </form>
+
+          <button
+            type="button"
+            aria-expanded={showWhatsAppInfo}
+            aria-controls="whatsapp-demo"
+            onClick={() => setShowWhatsAppInfo(!showWhatsAppInfo)}
+            className="mt-6 inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-3 text-sm font-semibold text-brand-navy"
+          >
+            <MessageCircle aria-hidden="true" className="size-5" />
+            WhatsApp demonstrativo
+          </button>
 
           <p
-            role="status"
-            className={`mt-4 text-sm ${state.status === "error" ? "text-red-700" : "text-brand-navy"}`}
+            id="whatsapp-demo"
+            hidden={!showWhatsAppInfo}
+            className="mt-3 text-sm text-brand-muted"
           >
-            {state.message}
+            Esta opção representa o atendimento por WhatsApp em um escritório
+            real. Para testar o contato da Nexo Legal, use o formulário acima.
           </p>
-        </form>
-
-        <button
-          type="button"
-          aria-expanded={showWhatsAppInfo}
-          aria-controls="whatsapp-demo"
-          onClick={() => setShowWhatsAppInfo(!showWhatsAppInfo)}
-          className="mt-6 inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-3 text-sm font-semibold text-brand-navy"
-        >
-          <MessageCircle aria-hidden="true" className="size-5" />
-          WhatsApp demonstrativo
-        </button>
-
-        <p
-          id="whatsapp-demo"
-          hidden={!showWhatsAppInfo}
-          className="mt-3 text-sm text-brand-muted"
-        >
-          Esta opção representa o atendimento por WhatsApp em um escritório
-          real. Para testar o contato da Nexo Legal, use o formulário acima.
-        </p>
+        </div>
       </div>
     </section>
   );

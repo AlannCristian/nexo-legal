@@ -21,14 +21,21 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/15 py-5 text-sm text-slate-300">
-          <span>Desenvolvido por</span>
-          <Image
-            src="/images/aodev-logo-branco.png"
-            alt="AO Dev"
-            width={112}
-            height={30}
-            className="h-auto w-28"
-          />
+          <a
+            href="https://aodev-site.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar o site da AO Dev (abre em nova aba)"
+            className="inline-flex rounded-sm hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
+          >
+            <Image
+              src="/images/aodev-logo-branco.png"
+              alt="AO Dev"
+              width={112}
+              height={30}
+              className="h-auto w-28"
+            />
+          </a>
         </div>
       </div>
     </footer>

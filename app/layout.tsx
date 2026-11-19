@@ -17,7 +17,22 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Nexo Legal | Direito claro, estratégia firme",
   description:
-    "Nexo Legal é um escritório de advocacia fictício criado como projeto de portfólio.",
+    "Projeto de portfólio de um escritório de advocacia fictício com atuação demonstrativa em Direito Civil, Contratos e Direito do Trabalho.",
+  keywords: [
+    "Nexo Legal",
+    "Direito Civil",
+    "Contratos",
+    "Direito do Trabalho",
+    "portfólio de desenvolvimento web",
+  ],
+  openGraph: {
+    title: "Nexo Legal | Direito claro, estratégia firme",
+    description:
+      "Landing page de um escritório de advocacia fictício, desenvolvida como projeto de portfólio.",
+    siteName: "Nexo Legal",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

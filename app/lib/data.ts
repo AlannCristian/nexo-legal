@@ -63,3 +63,18 @@ export const faqItems = [
       "O envio é simulado. O servidor valida os campos e devolve uma confirmação de teste.",
   },
 ];
+
+export const testimonials = [
+  {
+    id: "contratos",
+    context: "Exemplo de atendimento em contratos",
+    quote:
+      "A conversa ajudou a entender as cláusulas que precisavam ser revistas antes da assinatura.",
+  },
+  {
+    id: "patrimonio",
+    context: "Exemplo de atendimento em direito civil",
+    quote:
+      "Consegui entender as opções e quais documentos seriam necessários para o próximo passo.",
+  },
+];

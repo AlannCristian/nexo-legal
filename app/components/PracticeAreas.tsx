@@ -17,7 +17,7 @@ export default function PracticeAreas() {
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <h2
           id="areas-title"
-          className="font-serif text-3xl text-brand-navy md:text-4xl"
+          className="font-serif text-4xl text-brand-navy md:text-5xl"
         >
           Áreas de atuação
         </h2>
@@ -31,11 +31,15 @@ export default function PracticeAreas() {
                 key={area.id}
                 className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <Icon aria-hidden="true" className="size-6 text-brand-navy" />
-                <h3 className="mt-4 font-serif text-xl font-semibold text-brand-navy">
+                <div className="grid size-12 place-items-center rounded-md bg-brand-gold/15 text-[#896521]">
+                  <Icon aria-hidden="true" className="size-6" />
+                </div>
+
+                <h3 className="mt-5 font-serif text-2xl text-brand-navy">
                   {area.title}
                 </h3>
-                <p className="mt-2 leading-relaxed text-brand-muted">
+
+                <p className="mt-3 leading-relaxed text-brand-muted">
                   {area.description}
                 </p>
               </li>

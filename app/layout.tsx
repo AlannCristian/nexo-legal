@@ -24,7 +24,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${jakarta.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${playfair.variable} ${jakarta.variable} motion-safe:scroll-smooth`}
+    >
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

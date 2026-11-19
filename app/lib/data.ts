@@ -34,3 +34,32 @@ export const processSteps = [
     description: "Explicamos as opções, os riscos e as etapas de cada caminho.",
   },
 ];
+
+export const navigationLinks = [
+  { href: "#sobre", label: "Quem somos" },
+  { href: "#areas", label: "Áreas de atuação" },
+  { href: "#atendimento", label: "Atendimento" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contato", label: "Contato" },
+];
+
+export const faqItems = [
+  {
+    id: "publico",
+    question: "Quem a Nexo Legal atenderia?",
+    answer:
+      "A proposta do escritório fictício é orientar pessoas e empresas em questões patrimoniais, contratuais e trabalhistas.",
+  },
+  {
+    id: "primeiro-contato",
+    question: "Como funciona o primeiro contato?",
+    answer:
+      "Na demonstração, você escolhe uma área e descreve brevemente uma situação fictícia para testar o formulário.",
+  },
+  {
+    id: "envio",
+    question: "O formulário envia uma mensagem real?",
+    answer:
+      "O envio é simulado. O servidor valida os campos e devolve uma confirmação de teste.",
+  },
+];

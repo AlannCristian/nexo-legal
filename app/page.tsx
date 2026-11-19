@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import PracticeAreas from "./components/PracticeAreas";
 import ProcessSteps from "./components/ProcessSteps";
+import ContactForm from "./components/ContactForm";
+import FaqAccordion from "./components/FaqAccordion";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <About />
         <PracticeAreas />
         <ProcessSteps />
+        <FaqAccordion />
+        <ContactForm />
       </main>
 
       <Footer />
